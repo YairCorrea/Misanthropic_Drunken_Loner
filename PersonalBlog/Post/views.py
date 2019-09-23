@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from Post.models import Post
 from django.template import loader
 def index(request):
-    latest_Post_list = Post.objects.order_by('-id')
-    template = loader.get_template('Home/index.html')
+    return render(request,'Home/index.html')
+def OnePost(request,Post_id):
+    post = Post.objects.filter(id=Post_id).first()
+    template = loader.get_template('Post/OnePost.html')
     context = {
-        'latest_Post_list': latest_Post_list,
+        'post': post,
     }
     return HttpResponse(template.render(context, request))
-# Create your views here.

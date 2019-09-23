@@ -1,0 +1,11 @@
+{% if post %}
+<center>
+<li>{{ post.title }}</li>
+</center>
+<br>{{ post.date }}</a></br>
+<center><br><img src=/media/{{post.image}}></br>
+<br>{{post.paragraph}}</br>
+</center>
+{% else %}
+    <p>Error 404: Not found</p>
+{% endif %}
